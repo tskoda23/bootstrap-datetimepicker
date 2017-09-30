@@ -416,3 +416,11 @@
 	width: 14px;
 	height: 14px;
 }
+
+.prev-hidden{
+    visibility: hidden;
+}
+
+.next-hidden{
+    visibility: hidden;
+}

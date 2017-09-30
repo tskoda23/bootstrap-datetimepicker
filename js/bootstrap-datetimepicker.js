@@ -110,6 +110,7 @@
     this.zIndex = options.zIndex || this.element.data('z-index') || undefined;
     this.title = typeof options.title === 'undefined' ? false : options.title;
     this.timezone = options.timezone || timeZoneAbbreviation();
+    this.hideSwitch = options.hideSwitch || false;
 
     this.icons = {
       leftArrow: this.fontAwesome ? 'fa-arrow-left' : (this.bootcssVer === 3 ? 'glyphicon-arrow-left' : 'icon-arrow-left'),
@@ -732,6 +733,13 @@
         this.setTitle('.datetimepicker-hours', dayMonth + ' ' + dates[this.language].months[month] + ' ' + year);
         this.setTitle('.datetimepicker-minutes', dayMonth + ' ' + dates[this.language].months[month] + ' ' + year);
       }
+
+      if(this.hideSwitch === true){
+        this.picker.find('thead th.switch').text('Select time');
+        this.picker.find('thead th.prev').removeClass("prev").addClass("prev-hidden");
+        this.picker.find('thead th.prev').removeClass("next").addClass("next-hidden");
+      }
+
       this.picker.find('tfoot th.today')
         .text(dates[this.language].today || dates['en'].today)
         .toggle(this.todayBtn !== false);
@@ -1857,7 +1865,7 @@
                 '</tr>' +
       '</thead>',
     contTemplate: '<tbody><tr><td colspan="7"></td></tr></tbody>',
-    footTemplate: '<tfoot>' + 
+    footTemplate: '<tfoot>' +
                     '<tr><th colspan="7" class="today"></th></tr>' +
                     '<tr><th colspan="7" class="clear"></th></tr>' +
                   '</tfoot>'
