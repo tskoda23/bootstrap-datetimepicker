@@ -735,7 +735,7 @@
       }
 
       if(this.hideSwitch === true){
-        this.picker.find('thead th.switch').text('Select time');
+        this.picker.find('thead th.switch').text(hours+":00");
         this.picker.find('thead th.prev').removeClass('prev').addClass('prev-hidden');
         this.picker.find('thead th.next').removeClass('next').addClass('next-hidden');
       }
